@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="script.js" defer></script>
+    <title> Food4U </title>
+</head>
+<body>
+    <div class="padre">
+        <header class="header">
+            <div class="menu">
+                <div class="logo">
+                    <a href="index.html"><img src="imagenes/logo2.png"></a>
+                </div>
+                <h1 class="logotext"><b>Food4U</b></h1>
+                <div class="login">
+                    <label class="label" for="Log In"> Log In </label>
+                    <input class="input" type="text" placeholder="Enter your E-mail">
+                    <input class="input-password" type="password" placeholder="Enter your Password">
+                    <button class="submit">
+                      <a href="index.html"> Submit </a>
+                    </button>
+                    
+                </div>
+            </div>
+            <div class="reservacion">
+                <div class="container">
+                    <div class="row">
+                      <h1 class="section-title">SISTEMA DE RESERVACIONES - MENU</h1>
+                    </div>
+                    <div class="row">
+                      <div id="menu1" class="col-xs-12 col-md-6 col-lg-4">
+                        <div class="about-item">
+                          <div class="about-text">
+                            <h3><a>Consultar Menus</a></h3>
+                            <p>Consulte los horarios de entrega y su precio</p>
+                            <a class="btn btn-common btn-rm" href="#" onclick="app.mostrarVuelos();">Consultar</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="menu2" class="col-xs-12 col-md-6 col-lg-4">
+                        <div class="about-item">
+                          <div class="about-text">
+                            <h3><a>Consultar Reservas</a></h3>
+                            <p>Consulte sus reservas por número de cédular</p>
+                            <input id="docConsulta" class="mb-20 form-control" name="cedula" placeholder="Ingresa tu número de cédula">
+                            <a class="btn btn-common btn-rm" href="#" onclick="app.consultarReserva();">Consultar</a>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="campodoc" style="display: none;">
+                        <form action="javascript:void(0);" method="POST" id="reserva-edit">
+                          <p id="datosvuelo"></p>
+                          <input type="text" id="documento" placeholder="Cedula de Ciudadania">
+                          <input type="submit" value="Reservar" />
+                        </form>
+                      </div>
+                      <div class="row">
+                        <div class="col-12">
+                          <table>
+                            <tbody id="vuelos"></tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <a id="btnback" style="display: none;" href="#" class="btn btn-common btn-rm" onclick="app.Volver();">Volver</a>
+                  </div>
+                <div id="copyright">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+        </header>
+      <section class="section">
+          <div class="comida">
+              <article class="article">
+                  <img class="img" src="imagenes/bread-101636-1.jpg" alt="">
+                    <div class="texto">
+                  <h2 class="titulotexto"> Especialidad de la Casa </h2>
+                  <p class="texto2"> | Food 4 U te ofrece los mejores Croissant del pais con pan artesanal 100% exportado de la Union Europea (Trigo) | </p>
+                    </div>
+              </article>
+              <article class="article">
+                  <img class="img" src="imagenes/coffee-4908764_1920-1.jpg" alt="">
+                    <div class="texto">
+                  <h2 class="titulotexto"> Cafe importado de Colombia - Bogota </h2>
+                  <p class="texto2"> |  Contamos con un convenio con CarCafe LDT. que nos bridan la calidad del cafe al gusto del consumidor |  </p>
+                    </div>
+              </article>
+              <article class="article">
+                  <img class="img" src="imagenes/pizza-2589575_1920-1.jpg" alt="">
+                    <div class="texto">
+                  <h2 class="titulotexto"> Pizzas </h2>
+                  <p class="texto2"> | Ofrecemos una linea extensa de todo tipo de pizzas, pastas y platos con ingredientes de alta calidad autentica italiana | </p>
+                    </div>
+              </article>
+              <article class="article">
+                  <img class="img" src="imagenes/sandwich-2977251_1920-1.jpg" alt="">
+                    <div class="texto">
+                  <h2 class="titulotexto"> Platos Sencillos</h2>
+                  <p class="texto2"> | De igual forma ofrecemos platos de un costo accesible a la bolsa del consumidor, tales como sandwich's, reposteria, etc... | </p>
+                    </div>
+              </article>
+          </div>
+          <aside class="aside">
+            <div class="carrusel">
+              <div id="carouselExample" class="carousel vert slide" data-ride="carousel" data-interval="1000">
+                  <ol class="carousel-indicators">
+                      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+                      <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>
+                  </ol>
+                  <p class="carruselcenter"> Galardones </p>
+                  <div class="carousel-inner">
+                      <div class="carousel-item active">
+                          <img class="d-block mx-auto img-fluid" src="imagenes/ribbon-1119303_640.png" alt="Primera slide">
+                          <p class="premios"> Manhathan 1999 - The best gourmet Burger, first place </p>
+                      </div>
+                      <div class="carousel-item">
+                          <img class="d-block mx-auto img-fluid" src="imagenes/ribbon-1119303_640.png" alt="Segunda slide">
+                          <p class="premios"> Stn Lucia 2001 - Th royal preference, second place    </p>
+                      </div>
+                      <div class="carousel-item">
+                          <img class="d-block mx-auto img-fluid" src="imagenes/ribbon-1119303_640.png" alt="Tercera slide">
+                          <p class="premios"> Bogota, Colombia 2001- La Delicia de Bogota, primer lugar. </p>
+                      </div>
+                      <div class="carousel-item">
+                        <img class="d-block mx-auto img-fluid" src="imagenes/ribbon-1119303_640.png" alt="Cuarta slide">
+                        <p class="premios"> Madrid, España 2004 - La mejor hamburguesa gourmet </p>
+                    </div>
+                    <div class="carousel-item">
+                        <img class="d-block mx-auto img-fluid" src="imagenes/ribbon-1119303_640.png" alt="Quinta slide">
+                        <p class="premios"> Buenos Aires- Argentina 2006 – Champio of all tasted </p>
+                    </div>
+                    <div class="carousel-item">
+                      <img class="d-block mx-auto img-fluid" src="imagenes/ribbon-1119303_640.png" alt="Sexta slide">
+                      <p class="premios"> New york, Estados Unidos 2010 - The royal Hamburguer </p>
+                  </div>
+                  <div class="carousel-item">
+                      <img class="d-block mx-auto img-fluid" src="imagenes/ribbon-1119303_640.png" alt="Septima slide">
+                      <p class="premios"> Texas, Estados Unidos 2016 - Favorite flavore </p>
+                  </div>
+                  </div>
+                  <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon  rounded-circle" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                  </a>
+                  <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon  rounded-circle" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                  </a>
+              </div>
+          </div>
+          </aside>
+      </section>  
+      <footer class="footer">
+          <div class="valores">
+            <div class="w3-container">
+                <h2 class="valorescontainer">Principios del Restaurante</h2>
+              
+                <div class="w3-row">
+                  <a href="javascript:void(0)" onclick="openCity(event, 'Vision');">
+                    <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Vision</div>
+                  </a>
+                  <a href="javascript:void(0)" onclick="openCity(event, 'Mision');">
+                    <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Mision</div>
+                  </a>
+                  <a href="javascript:void(0)" onclick="openCity(event, 'Valores');">
+                    <div class="w3-third tablink w3-bottombar w3-hover-light-grey w3-padding">Valores</div>
+                  </a>
+                </div>
+              
+                <div id="Vision" class="w3-container city" style="display:none">
+                  <h2 class="valorescontainer">Vision</h2>
+                  <p class="visiones">Nuestra visión a futuro es ayudar a crear una localidad más saludable,
+                    más consciente sobre su nutrición, y que nuestra ciudad tenga una opción
+                    confiable y de bajo costo para comer bien, sin sacrificar el placer de comer.</p>
+                </div>
+              
+                <div id="Mision" class="w3-container city" style="display:none">
+                  <h2 class="valorescontainer">Mision</h2>
+                  <p class="visiones">Satisfacer las necesidades gastronómicas de nuestros clientes, ofreciendo
+                    alimentos y servicios con la más alta calidad, donde se sobrepasen las
+                    expectativas de nuestros clientes y ser un espacio de trabajo que permita la
+                    realización personal y el Desarrollo de sus colaboradores en el grupo.</p> 
+                </div>
+              
+                <div id="Valores" class="w3-container city" style="display:none">
+                  <h2 class="valorescontainer">Valores</h2>
+                  <p class="visiones"> Honestidad, confianza, firmeza, responsabilidad y liderazgo. </p>
+                </div>
+              </div>
+              <h2 class="valorescontainer3">Contactos</h2>
+              <div class="navegacion">
+                <a href="https://www.facebook.com/daniel.lacayo.313/" class="w3-bar-item w3-button w3-mobile"> <img src="imagenes/facebook-2429746_640-1.png" alt="Facebook"> Facebook</a>
+                <a href="https://twitter.com/?lang=es" class="w3-bar-item w3-button w3-mobile"> <img src="imagenes/twitter-2430933_640-1.png" alt="Twitter"> Twitter</a>
+                <a href="https://www.instagram.com/xdannl._/?hl=es" class="w3-bar-item w3-button w3-mobile"> <img src="imagenes/instagram-1882330_640.png" alt="Instagram"> Instagram</a>
+                <a href="https://www.google.com/intl/es/gmail/about/" class="w3-bar-item w3-button w3-mobile"> <img src="imagenes/gmail-4561841_640-1.png" alt="Gmail"> Gmail</a>
+              </div>
+          </div>
+          <div class="calendario"> 
+            <body class="light">
+
+              <div class="calendar">
+                  <div class="calendar-header">
+                      <span class="month-picker" id="month-picker">February</span>
+                      <div class="year-picker">
+                          <span class="year-change" id="prev-year">
+                              <pre></pre>
+                          </span>
+                          <span id="year">2021</span>
+                          <span class="year-change" id="next-year">
+                              <pre>></pre>
+                          </span>
+                      </div>
+                  </div>
+                  <div class="calendar-body">
+                      <div class="calendar-week-day">
+                          <div>Sun</div>
+                          <div>Mon</div>
+                          <div>Tue</div>
+                          <div>Wed</div>
+                          <div>Thu</div>
+                          <div>Fri</div>
+                          <div>Sat</div>
+                      </div>
+                      <div class="calendar-days">
+                          <div>1</div>
+                          <div>2</div>
+                          <div>3</div>
+                          <div>4</div>
+                          <div>5</div>
+                          <div>6</div>
+                          <div>7</div>
+                          <div>8</div>
+                          <div>9</div>
+                          <div>10</div>
+                          <div>11</div>
+                          <div>12</div>
+                          <div>13</div>
+                          <div>14</div>
+                          <div>15</div>
+                          <div>16</div>
+                          <div>17</div>
+                          <div>18</div>
+                          <div>19</div>
+                          <div>20</div>
+                          <div>21</div>
+                          <div>22</div>
+                          <div>23</div>
+                          <div>24</div>
+                          <div>25</div>
+                          <div>26</div>
+                          <div>27</div>
+                          <div>28</div>
+                          <div>29</div>
+                          <div>30</div>
+                          <div>31</div>
+                      </div>
+                  </div>
+                  <div class="calendar-footer">
+                      <div class="toggle">
+                          <span>Dark Mode</span>
+                          <div class="dark-mode-switch">
+                              <div class="dark-mode-switch-ident"></div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="month-list"></div>
+                </div>
+          <div class="reloj">
+                    <span id="tiempo">00 : 00 : 00</span>
+                </div>
+          </div>
+        </footer>
+</body>
+</html>
